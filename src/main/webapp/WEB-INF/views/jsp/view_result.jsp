@@ -14,8 +14,8 @@
                 <tr>
                     <td><form:label path="type">Type</form:label></td>
                     <td><form:select path="type">
+      						<form:option value="includeHTML"/>
       						<form:option value="excludeHTML"/>
-      						<form:option value="Text"/>
    						</form:select></td>
                 </tr>
                 <tr>

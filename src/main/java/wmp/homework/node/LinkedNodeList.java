@@ -2,11 +2,10 @@ package wmp.homework.node;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 public class LinkedNodeList {
 	private ArrayList<LinkedList<Node>> nodeArray;
-	
+
 	@SuppressWarnings("unused")
 	private LinkedNodeList() {
 		// it does not want a call.
@@ -30,13 +29,20 @@ public class LinkedNodeList {
 	}
 
 	public Iterator<Node> iterator() {
-		// it is bad smell but we've have no time.
-		LinkedList<Node> toMerge = new LinkedList<Node>();
+		// zero copy.
+		LinkedList<Node> workingList = null;
+		LinkedList<Node> headList = null;
 		for (LinkedList<Node> list : nodeArray) {
-			if (list != null)
-				toMerge.addAll(list);
+			if (list != null) {
+				if (workingList == null) {
+					workingList = list;
+					headList = list;
+				} else {
+					workingList.linkedTo(list);
+					workingList = list;
+				}
+			}
 		}
-
-		return toMerge.iterator();
+		return headList.iterator();
 	}
 }

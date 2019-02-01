@@ -1,7 +1,5 @@
 package wmp.homework.node;
 
-import java.util.LinkedList;
-
 public class LowerCaseNode extends Node implements Alphabetic {
 
 	public static final Character FIRST_CHARACTER = 'a';

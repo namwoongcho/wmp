@@ -1,7 +1,5 @@
 package wmp.homework.node;
 
-import java.util.LinkedList;
-
 public class UnusedNode extends Node {
 
 	public UnusedNode(Character character) {

@@ -1,7 +1,5 @@
 package wmp.homework.node;
 
-import java.util.LinkedList;
-
 public abstract class Node {
 	private Character character;
 	private int index = 0;
